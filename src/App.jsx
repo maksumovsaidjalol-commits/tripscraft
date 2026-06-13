@@ -146,7 +146,7 @@ for (const model of models) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": "Bearer key",
+        "Authorization": "Bearer " + (import.meta.env.VITE_OPENROUTER_KEY || ""),
         "HTTP-Referer": "http://localhost:5173",
         "X-Title": "TripCraft"
       },
@@ -722,7 +722,7 @@ function StarRating({ rating }) {
   );
 }
 
-const PEXELS_KEY = "key";
+const PEXELS_KEY = import.meta.env.VITE_PEXELS_KEY || "";
 const pexelsCache = {};
 
 async function fetchPexelsImg(query) {
